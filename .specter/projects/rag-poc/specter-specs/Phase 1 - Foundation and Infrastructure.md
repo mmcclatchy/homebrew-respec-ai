@@ -3,74 +3,83 @@
 ## Overview
 
 ### Objectives
-Establish the foundational infrastructure for the RAG POC by setting up local Docker environment for Neo4j, configuring project structure with Python 3.13 and uv package manager, scaffolding basic MCP Server implementation, and ensuring environment configuration is complete with API keys and connection settings.
-
-**Success Criteria:**
-- Neo4j container running and accessible on localhost:7474 (HTTP) and localhost:7687 (Bolt)
-- Project structure created with pyproject.toml and dependencies installed via uv
-- Basic MCP Server responds to test ping/health check
-- Environment file configured with Lambda AI and Exa API keys
-- Developer can connect to Neo4j browser interface and execute basic Cypher queries
+Establish the foundational infrastructure for the RAG Best Practices POC by setting up Neo4j database, project structure, MCP Server skeleton, and environment configuration. This phase creates the technical foundation upon which all integration and intelligence work will be built.
 
 ### Scope
 **Included:**
-- Docker Compose configuration for Neo4j community edition
-- Python project initialization with uv (pyproject.toml, .python-version)
-- Core dependency installation (mcp, llama-index, langchain, neo4j driver)
-- MCP Server skeleton with single placeholder tool
-- .env file template with required API keys and Neo4j connection settings
-- Basic README with setup instructions
+- Docker Compose configuration for Neo4j Community Edition container
+- Neo4j container deployment with port exposure and basic configuration
+- Python project structure using uv package manager
+- Core dependency installation (MCP SDK, Neo4j driver, LlamaIndex, LangChain)
+- MCP Server skeleton with basic request/response capability
+- Environment variable configuration for API keys (Lambda AI, Exa)
+- Basic connectivity verification for Neo4j
+- Git repository initialization with .gitignore for environment files
 
 **Excluded:**
-- Neo4j schema design (deferred to Phase 2)
-- Actual query logic implementation
-- Integration with LlamaIndex, Exa, or Lambda AI
-- Error handling beyond basic connection validation
-- Production-ready configuration (authentication, persistence, backups)
-- Automated testing setup
+- Neo4j schema design (deferred to Phase 2A)
+- LlamaIndex configuration (deferred to Phase 2A)
+- Exa API integration (Phase 2B)
+- Lambda AI integration (Phase 2B)
+- Query routing logic (Phase 3)
+- Testing framework setup (manual testing only)
+- Production-ready error handling
+- Logging infrastructure (basic print statements acceptable)
 
 ### Dependencies
 **Prerequisites:**
-- Docker and Docker Compose installed on macOS
-- Python 3.13+ available (managed by uv)
-- uv package manager installed
-- Internet connectivity for Docker image pull and package downloads
-- Lambda AI API key obtained
-- Exa API key obtained
+- Docker Desktop installed and running on macOS
+- Python 3.13+ available (will be managed by uv)
+- uv package manager installed globally
+- API keys obtained for Lambda AI and Exa services
+- Internet connectivity for downloading images and dependencies
 
 **Blocking Relationships:**
-- No prior phases (this is Phase 1)
-- Neo4j container must be operational before Phase 2 LlamaIndex integration
-- MCP Server skeleton must exist before Phase 2 query logic implementation
-- Environment configuration must be complete before any API integrations
+- This phase blocks ALL subsequent phases - nothing can proceed without working infrastructure
+- Neo4j container must be healthy before Phase 2A can begin LlamaIndex integration
+- MCP Server skeleton must exist before Phase 2 can add query routing logic
+- Environment configuration must be complete before Phase 2B can test API integrations
+
+**External Dependencies:**
+- Docker Hub for Neo4j official image
+- PyPI for Python package downloads via uv
+- No dependency on other project phases (foundation is self-contained)
 
 ### Deliverables
-1. **docker-compose.yml** - Neo4j container configuration with port mappings and basic settings
-2. **pyproject.toml** - Python project configuration with all required dependencies
-3. **.python-version** - Python 3.13 version specification for uv
-4. **src/mcp_server.py** - Basic MCP Server implementation with placeholder tool
-5. **.env.example** - Template showing required environment variables
-6. **.env** - Actual environment file with API keys (gitignored)
-7. **README.md** - Setup and quick start instructions
-8. **Verification Log** - Manual test results showing Neo4j accessible and MCP Server responding
+**Infrastructure Deliverables:**
+1. **docker-compose.yml**: Neo4j container configuration with port mappings (7687, 7474) and health checks
+2. **Running Neo4j Container**: Accessible at localhost:7687 (Bolt) and localhost:7474 (HTTP), verified healthy
 
-**Research Focus:**
-- MCP SDK documentation for Python server implementation patterns
-- LlamaIndex Neo4j integration requirements (inform dependency versions)
-- Docker Compose Neo4j configuration best practices for local development
-- Exa LangChain integration package names and versions
-- Neo4j Python driver connection string formats
+**Project Structure Deliverables:**
+3. **pyproject.toml**: uv project configuration with core dependencies defined
+4. **src/ directory**: Main source code directory with __init__.py
+5. **src/mcp_server.py**: MCP Server skeleton responding to basic ping/health check requests
+6. **.env file**: Environment variables for NEO4J_URI, LAMBDA_AI_API_KEY, EXA_API_KEY
+7. **.gitignore**: Excludes .env, .venv, __pycache__, and other generated files
 
-**Visual Deliverable:**
-- Architecture diagram showing component relationships (Neo4j ← LlamaIndex ← MCP Server → Claude Code, MCP Server → Lambda AI, MCP Server → Exa API → Neo4j storage loop)
+**Verification Deliverables:**
+8. **Connectivity Test Script**: Simple Python script verifying Neo4j connection via driver
+9. **MCP Server Test**: Manual verification that MCP Server starts and responds to requests
+
+**Documentation Deliverables:**
+10. **README.md (Initial)**: Setup instructions including Docker Compose commands and uv sync steps
+
+**Success Criteria:**
+- ✅ `docker-compose up -d` successfully starts Neo4j container
+- ✅ Neo4j browser accessible at http://localhost:7474
+- ✅ Python script connects to Neo4j without errors
+- ✅ `uv sync` installs all dependencies without conflicts
+- ✅ MCP Server starts and responds to health check request
+- ✅ Environment variables loaded and accessible from Python code
+- ✅ Phase 1 completion time: ≤3 hours including buffer
 
 ## Metadata
 
 ### Iteration
-0
+2
 
 ### Version
-1
+3
 
 ### Status
 draft
