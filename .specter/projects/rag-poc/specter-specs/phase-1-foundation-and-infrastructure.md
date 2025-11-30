@@ -52,10 +52,10 @@ Establish the foundational infrastructure for the RAG Best Practices POC by sett
 
 **Project Structure Deliverables:**
 3. **pyproject.toml**: uv project configuration with core dependencies defined
-4. **src/ directory**: Main source code directory with __init__.py
+4. **src/ directory**: Main source code directory with **init**.py
 5. **src/mcp_server.py**: MCP Server skeleton responding to basic ping/health check requests
 6. **.env file**: Environment variables for NEO4J_URI, LAMBDA_AI_API_KEY, EXA_API_KEY
-7. **.gitignore**: Excludes .env, .venv, __pycache__, and other generated files
+7. **.gitignore**: Excludes .env, .venv, **pycache**, and other generated files
 
 **Verification Deliverables:**
 8. **Connectivity Test Script**: Simple Python script verifying Neo4j connection via driver
@@ -66,7 +66,7 @@ Establish the foundational infrastructure for the RAG Best Practices POC by sett
 
 **Success Criteria:**
 - ✅ `docker-compose up -d` successfully starts Neo4j container
-- ✅ Neo4j browser accessible at http://localhost:7474
+- ✅ Neo4j browser accessible at <http://localhost:7474>
 - ✅ Python script connects to Neo4j without errors
 - ✅ `uv sync` installs all dependencies without conflicts
 - ✅ MCP Server starts and responds to health check request
