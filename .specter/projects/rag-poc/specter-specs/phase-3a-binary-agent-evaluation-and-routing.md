@@ -1,4 +1,4 @@
-# Technical Specification: Phase 3A - Binary Agent Evaluation and Routing
+# Technical Specification: phase-3a-binary-agent-evaluation-and-routing
 
 ## Overview
 
@@ -58,15 +58,15 @@ Implement agent-based evaluation logic that classifies Neo4j query results as "s
 
 **Prompt Engineering Deliverables:**
 7. **Binary Evaluation Prompt**: Refined prompt template for sufficient/insufficient classification
-   - Clear criteria definition for each classification
-   - Examples of sufficient vs insufficient scenarios
-   - Structured output format for reliable parsing
+    - Clear criteria definition for each classification
+    - Examples of sufficient vs insufficient scenarios
+    - Structured output format for reliable parsing
 8. **Prompt Documentation**: Comment explaining evaluation criteria and expected reasoning
 
 **Testing Deliverables:**
 9. **Test Scenario Script**: Python script testing both paths
-   - Test Case: Empty database query → Should route to insufficient → Exa search
-   - Test Case: Well-populated query → Should route to sufficient → Return cache
+    - Test Case: Empty database query → Should route to insufficient → Exa search
+    - Test Case: Well-populated query → Should route to sufficient → Return cache
 10. **Evaluation Log Output**: Console logging showing classification reasoning for each test
 
 **Integration Deliverables:**

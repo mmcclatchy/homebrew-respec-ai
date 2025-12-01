@@ -1,4 +1,4 @@
-# Technical Specification: Phase 1 - Foundation and Infrastructure
+# Technical Specification: phase-1-foundation-and-infrastructure
 
 ## Overview
 

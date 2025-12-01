@@ -1,4 +1,4 @@
-# Technical Specification: Phase 4 - Validation, Documentation, and Decision
+# Technical Specification: phase-4-validation-documentation-and-decision
 
 ## Overview
 
@@ -78,13 +78,13 @@ Comprehensively test all three evaluation paths (sufficient/partial/insufficient
 
 **Documentation Deliverables:**
 6. **README.md (Complete)**:
-   - Project overview and objectives
-   - Prerequisites (Docker, Python, uv, API keys)
-   - Setup instructions (step-by-step from clone to running)
-   - Testing guide (how to run test scenarios)
-   - Architecture overview (component diagram or description)
-   - Known limitations
-   - Next steps
+    - Project overview and objectives
+    - Prerequisites (Docker, Python, uv, API keys)
+    - Setup instructions (step-by-step from clone to running)
+    - Testing guide (how to run test scenarios)
+    - Architecture overview (component diagram or description)
+    - Known limitations
+    - Next steps
 7. **ARCHITECTURE.md**: Detailed component interaction documentation
 8. **API_CONFIGURATION.md**: Environment variable setup and API key acquisition guide
 9. **Code Documentation**: All public functions have docstrings, complex logic has inline comments

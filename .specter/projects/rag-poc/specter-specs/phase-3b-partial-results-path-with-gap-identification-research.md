@@ -1,4 +1,4 @@
-# Technical Specification: Phase 3B - Partial Results Path with Gap Identification Research
+# Technical Specification: phase-3b-partial-results-path-with-gap-identification-research
 
 ## Overview
 
@@ -67,26 +67,26 @@ Implement the "partial results" evaluation path that identifies specific knowled
 
 **Core Logic Deliverables:**
 4. **identify_gaps() function**: Implemented based on research findings
-   - Input: user_query (str), cached_results (List[BestPractice])
-   - Output: identified_gaps (List[str]) - specific missing topics or details
-   - Implementation: Chosen approach (keyword-based, semantic, etc.)
+    - Input: user_query (str), cached_results (List[BestPractice])
+    - Output: identified_gaps (List[str]) - specific missing topics or details
+    - Implementation: Chosen approach (keyword-based, semantic, etc.)
 5. **Partial Evaluation Path**: Integration into evaluate_and_route() logic
-   - Classification: "partial" when cached results are incomplete but not empty
-   - Gap extraction from evaluation response
-   - Targeted Exa search for identified gaps only
+    - Classification: "partial" when cached results are incomplete but not empty
+    - Gap extraction from evaluation response
+    - Targeted Exa search for identified gaps only
 
 **Result Combination Deliverables:**
 6. **combine_results() function**: Merge cached and fresh results
-   - Input: cached_results (List[BestPractice]), fresh_results (List[BestPractice])
-   - Output: combined_results (List[BestPractice])
-   - Implementation: Simple concatenation with metadata indicating sources
+    - Input: cached_results (List[BestPractice]), fresh_results (List[BestPractice])
+    - Output: combined_results (List[BestPractice])
+    - Implementation: Simple concatenation with metadata indicating sources
 7. **Source Metadata**: Mark results with origin (cache vs fresh) for transparency
 
 **Prompt Engineering Deliverables:**
 8. **Partial Evaluation Prompt**: Expanded prompt supporting three-way classification
-   - Criteria for "partial" classification
-   - Gap identification guidance for agent
-   - Structured output including identified_gaps field
+    - Criteria for "partial" classification
+    - Gap identification guidance for agent
+    - Structured output including identified_gaps field
 9. **Prompt Refinement Notes**: Document iterations made based on test results
 
 **Testing Deliverables:**

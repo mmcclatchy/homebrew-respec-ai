@@ -1,4 +1,4 @@
-# Technical Specification: Phase 2B - Exa API and Lambda AI Integration
+# Technical Specification: phase-2b-exa-api-and-lambda-ai-integration
 
 ## Overview
 

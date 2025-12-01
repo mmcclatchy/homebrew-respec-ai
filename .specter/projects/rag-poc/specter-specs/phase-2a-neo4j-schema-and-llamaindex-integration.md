@@ -1,4 +1,4 @@
-# Technical Specification: Phase 2A - Neo4j Schema and LlamaIndex Integration
+# Technical Specification: phase-2a-neo4j-schema-and-llama-index-integration
 
 ## Overview
 
@@ -69,9 +69,9 @@ Implement a concrete Neo4j schema for storing best practices and integrate Llama
 
 **Testing Deliverables:**
 7. **Test Queries Script**: Python script running diverse natural language queries
-   - Example: "How to handle errors in Python?"
-   - Example: "FastAPI async patterns"
-   - Example: "React hooks best practices"
+    - Example: "How to handle errors in Python?"
+    - Example: "FastAPI async patterns"
+    - Example: "React hooks best practices"
 8. **Query Results Validation**: Manual verification that results match expected best practices
 
 **Documentation Deliverables:**
@@ -80,7 +80,7 @@ Implement a concrete Neo4j schema for storing best practices and integrate Llama
 
 **Success Criteria:**
 - ✅ Neo4j contains concrete schema with BestPractice nodes including title, content, topic, framework, language properties
-- ✅ Sample data queryable via Neo4j browser (http://localhost:7474)
+- ✅ Sample data queryable via Neo4j browser (<http://localhost:7474>)
 - ✅ LlamaIndex successfully translates natural language to Cypher queries
 - ✅ Query function returns structured results with all node properties
 - ✅ At least 3 diverse test queries execute successfully
