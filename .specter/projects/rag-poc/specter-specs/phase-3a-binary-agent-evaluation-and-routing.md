@@ -100,31 +100,31 @@ Implement agent-based evaluation logic that classifies Neo4j query results as "s
 │                    Agent Evaluator Module                       │
 │                   (evaluate_and_route())                        │
 │                                                                 │
-│  ┌──────────────────────────────────────────────────────────┐ │
-│  │ STEP 1: Query Neo4j Cache                                │ │
-│  │ - Call query_knowledge_base(query)                       │ │
-│  │ - Get List[BestPractice] results                         │ │
-│  └──────────────────────────────────────────────────────────┘ │
+│  ┌──────────────────────────────────────────────────────────┐   │
+│  │ STEP 1: Query Neo4j Cache                                │   │
+│  │ - Call query_knowledge_base(query)                       │   │
+│  │ - Get List[BestPractice] results                         │   │
+│  └──────────────────────────────────────────────────────────┘   │
 │                           │                                     │
 │                           ▼                                     │
-│  ┌──────────────────────────────────────────────────────────┐ │
-│  │ STEP 2: Evaluate Results                                 │ │
-│  │ - Call evaluate_results(query, results)                  │ │
-│  │ - Get Classification: sufficient | insufficient          │ │
-│  │ - Get Reasoning: str                                     │ │
-│  └──────────────────────────────────────────────────────────┘ │
+│  ┌──────────────────────────────────────────────────────────┐   │
+│  │ STEP 2: Evaluate Results                                 │   │
+│  │ - Call evaluate_results(query, results)                  │   │
+│  │ - Get Classification: sufficient | insufficient          │   │
+│  │ - Get Reasoning: str                                     │   │
+│  └──────────────────────────────────────────────────────────┘   │
 │                           │                                     │
 │              ┌────────────┴────────────┐                        │
 │              ▼                         ▼                        │
-│  ┌─────────────────────┐   ┌─────────────────────────────────┐│
-│  │ SUFFICIENT PATH     │   │ INSUFFICIENT PATH               ││
-│  │                     │   │                                 ││
-│  │ Return cached       │   │ 1. search_best_practices_exa() ││
-│  │ results with:       │   │ 2. store_best_practice() to DB ││
-│  │ - source="cache"    │   │ 3. Return fresh results with:  ││
-│  │ - reasoning         │   │    - source="exa"              ││
-│  │                     │   │    - reasoning                 ││
-│  └─────────────────────┘   └─────────────────────────────────┘│
+│  ┌─────────────────────┐   ┌─────────────────────────────────┐  │
+│  │ SUFFICIENT PATH     │   │ INSUFFICIENT PATH               │  │
+│  │                     │   │                                 │  │
+│  │ Return cached       │   │ 1. search_best_practices_exa()  │  │
+│  │ results with:       │   │ 2. store_best_practice() to DB  │  │
+│  │ - source="cache"    │   │ 3. Return fresh results with:   │  │
+│  │ - reasoning         │   │    - source="exa"               │  │
+│  │                     │   │    - reasoning                  │  │
+│  └─────────────────────┘   └─────────────────────────────────┘  │
 └─────────────────────────────────────────────────────────────────┘
                      │                           │
                      │                           │
@@ -139,8 +139,8 @@ Implement agent-based evaluation logic that classifies Neo4j query results as "s
          ┌────────────────────────────────────────────────────┐
          │              Neo4j Knowledge Graph                 │
          │                                                    │
-         │  Nodes: BestPractice                              │
-         │  Properties: title, content, url, category        │
+         │  Nodes: BestPractice                               │
+         │  Properties: title, content, url, category         │
          └────────────────────────────────────────────────────┘
 ```
 
@@ -733,41 +733,41 @@ logger.error(f"Neo4j write failed: title='{title}', error='{error}'")
 
 **Required Archives:**
 1. `/Users/markmcclatchy/.claude/best-practices/2025-08-19-llamaindex-neo4j-integration.md`
-   - Purpose: Understand LlamaIndex Neo4j query patterns for integration
-   - Focus Areas: Query response handling, error handling patterns
+    - Purpose: Understand LlamaIndex Neo4j query patterns for integration
+    - Focus Areas: Query response handling, error handling patterns
 
 2. `/Users/markmcclatchy/.claude/best-practices/pydantic-ai-production.md` (if exists)
-   - Purpose: PydanticAI best practices for agent implementation
-   - Focus Areas: Structured outputs, error handling, prompt engineering
+    - Purpose: PydanticAI best practices for agent implementation
+    - Focus Areas: Structured outputs, error handling, prompt engineering
 
 **Optional Archives:**
 3. `/Users/markmcclatchy/.claude/best-practices/mcp-server-development.md` (if exists)
-   - Purpose: MCP Server integration patterns
-   - Focus Areas: Tool definition, response formatting
+    - Purpose: MCP Server integration patterns
+    - Focus Areas: Tool definition, response formatting
 
 #### External Research Needed
 
 **High Priority:**
 1. "PydanticAI binary classification prompt patterns 2025"
-   - Need: Effective prompt structure for reliable binary decisions
-   - Context: Lambda AI agent using Qwen3-235B-A22B model
+    - Need: Effective prompt structure for reliable binary decisions
+    - Context: Lambda AI agent using Qwen3-235B-A22B model
 
 2. "Neo4j Python Driver write operations best practices 2025"
-   - Need: Efficient Cypher INSERT patterns, duplicate handling
-   - Context: Writing Exa results to Neo4j graph
+    - Need: Efficient Cypher INSERT patterns, duplicate handling
+    - Context: Writing Exa results to Neo4j graph
 
 3. "LangChain Exa integration result mapping 2025"
-   - Need: Understanding SearchResult model structure for conversion to BestPractice
-   - Context: Data mapping from Exa to Neo4j schema
+    - Need: Understanding SearchResult model structure for conversion to BestPractice
+    - Context: Data mapping from Exa to Neo4j schema
 
 **Medium Priority:**
-4. "Agent routing patterns for cache vs API decisions 2025"
-   - Need: Industry patterns for intelligent cache evaluation
-   - Context: Deciding when cached data is sufficient vs fetching fresh data
+1. "Agent routing patterns for cache vs API decisions 2025"
+    - Need: Industry patterns for intelligent cache evaluation
+    - Context: Deciding when cached data is sufficient vs fetching fresh data
 
-5. "Neo4j duplicate prevention strategies 2025"
-   - Need: Efficient duplicate checking techniques beyond title matching
-   - Context: Future improvement for Phase 3B (semantic similarity, content hashing)
+2. "Neo4j duplicate prevention strategies 2025"
+    - Need: Efficient duplicate checking techniques beyond title matching
+    - Context: Future improvement for Phase 3B (semantic similarity, content hashing)
 
 ### Success Criteria
 #### Functional Success
