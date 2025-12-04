@@ -26,8 +26,8 @@ Implement agent-based evaluation logic that classifies Neo4j query results as "s
 ### Dependencies
 **Prerequisites:**
 - Phase 2A complete: Neo4j query capability via LlamaIndex functioning
-- Phase 2B complete: Lambda AI evaluation function working
-- Phase 2B complete: Exa search function working
+- Phase 2B complete: Lambda AI evaluation function working (using PydanticAI agent)
+- Phase 2B complete: Exa search function working (using LangChain Exa integration)
 - Phase 1 complete: MCP Server skeleton ready for query routing logic
 
 **Blocking Relationships:**
