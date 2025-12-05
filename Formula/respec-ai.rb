@@ -8,7 +8,6 @@ class RespecAi < Formula
   license "MIT"
 
   depends_on "python@3.11"
-  depends_on "docker"
 
   resource "docker" do
     url "https://files.pythonhosted.org/packages/91/9b/4a2ea29aeba62471211598dac5d96825bb49348fa07e906ea930394a83ce/docker-7.1.0.tar.gz"
@@ -45,6 +44,14 @@ class RespecAi < Formula
       This formula installs from TestPyPI and is for testing purposes only.
 
       Not recommended for production use. Features may be unstable.
+
+      ⚠️  REQUIRES DOCKER
+      macOS/Windows: Install Docker Desktop
+        https://www.docker.com/products/docker-desktop
+
+      Linux: Install docker.io or docker-ce via your package manager
+        Debian/Ubuntu: sudo apt install docker.io
+        Other: See https://docs.docker.com/engine/install/
 
       Report issues: https://github.com/mmcclatchy/respec-ai/issues
     EOS
