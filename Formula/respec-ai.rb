@@ -3,8 +3,8 @@ class RespecAi < Formula
 
   desc "AI-powered spec workflow automation (DEV BUILD - TestPyPI)"
   homepage "https://github.com/mmcclatchy/respec-ai"
-  url "https://test-files.pythonhosted.org/packages/32/ff/da3a6fc2ee96c4b294b7a3b854b8d2d03953bde95ff6a2229c01708cf652/respec_ai-0.5.9.tar.gz"
-  sha256 "b527df4731f96067fb2a1fdcaa5f7b4c1be83c9b60680bbd94c75cea58ff17bb"
+  url "https://test-files.pythonhosted.org/packages/be/38/283f3bc4d246b1c500a64deef48605933c52bfb448f026ec5772f07704b5/respec_ai-0.5.10.tar.gz"
+  sha256 "cfd618d7813d22a8e46abcee096fa6e87a6183f46415e81f2c594493a7e67734"
   license "MIT"
 
   depends_on "python"  # Uses Homebrew's default Python (3.12+)
@@ -100,7 +100,17 @@ class RespecAi < Formula
 
 
   def install
-    virtualenv_install_with_resources
+    # Create virtualenv
+    venv = virtualenv_create(libexec, "python3")
+
+    # Install resources - allow binary wheels to avoid Rust compilation issues
+    # (pydantic-core and other Rust-based packages require maturin/Rust to build from source)
+    resources.each do |r|
+      venv.pip_install r
+    end
+
+    # Install main package from TestPyPI
+    venv.pip_install_and_link buildpath
   end
 
   def caveats
@@ -124,6 +134,6 @@ class RespecAi < Formula
 
   test do
     system "#{bin}/respec-ai", "--version"
-    assert_match "0.5.9", shell_output("#{bin}/respec-ai --version")
+    assert_match "0.5.10", shell_output("#{bin}/respec-ai --version")
   end
 end
