@@ -3,13 +3,13 @@ class RespecAi < Formula
 
   desc "AI-powered spec workflow automation (DEV BUILD - TestPyPI)"
   homepage "https://github.com/mmcclatchy/respec-ai"
-  url "https://test-files.pythonhosted.org/packages/source/r/respec-ai/respec-ai-0.5.3.tar.gz"
-  sha256 "f9a103cd90a65ec88f8b29c8a495bb745bd4149cdaad2c6c6ca0bd432d278e55"
+  url "https://test-files.pythonhosted.org/packages/42/40/36e36aae628f770691db5cf7ea384bfc851d18450a3a02b2d4853764e19c/respec_ai-0.5.3.tar.gz"
+  sha256 "4824ccfe43b48a22e1e0f39fc3662f79f55842ce2c77b409e7c8fa4f3903e12a"
   license "MIT"
 
   depends_on "python@3.11"
 
-  
+
   resource "pydantic" do
     url "https://files.pythonhosted.org/packages/69/44/36f1a6e523abc58ae5f928898e4aca2e0ea509b5aa6f6f392a5d882be928/pydantic-2.12.5.tar.gz"
     sha256 "4d351024c75c0f085a9febbb665ce8c0c6ec5d30e903bdb6394b7ede26aebb49"
