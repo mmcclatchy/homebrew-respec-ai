@@ -95,7 +95,20 @@ class RespecAi < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    # pydantic-core requires Rust compilation, so we allow binary wheels for it
+    venv = virtualenv_create(libexec, "python3.11")
+
+    # Install pydantic-core as binary wheel (requires Rust to build from source)
+    venv.pip_install resource("pydantic-core")
+
+    # Install other resources from source
+    resources.each do |r|
+      next if r.name == "pydantic-core"
+      venv.pip_install r
+    end
+
+    # Install main package from TestPyPI source
+    venv.pip_install_and_link buildpath
   end
 
   def caveats
