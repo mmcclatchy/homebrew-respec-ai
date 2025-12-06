@@ -15,9 +15,9 @@ class RespecAi < Formula
 
     # Install package with dependencies (pip fetches dependencies from PyPI as wheels)
     # Use system pip with --python flag since venv is created --without-pip
-    system "python3", "-m", "pip", "install",
+    system "python3", "-m", "pip",
            "--python=#{libexec}/bin/python",
-           "--verbose",
+           "install", "--verbose",
            buildpath
 
     # Create symlink to bin
