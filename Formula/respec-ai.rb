@@ -3,13 +3,14 @@ class RespecAi < Formula
 
   desc "AI-powered spec workflow automation (DEV BUILD - TestPyPI)"
   homepage "https://github.com/mmcclatchy/respec-ai"
-  url "https://test-files.pythonhosted.org/packages/42/40/36e36aae628f770691db5cf7ea384bfc851d18450a3a02b2d4853764e19c/respec_ai-0.5.3.tar.gz"
+  url "https://test-files.pythonhosted.org/packages/0f/ae/a423b55b1971ae684464b8d6e3ea2bde10a92322df5b91da6c6a944dd1eb/respec_ai-0.5.5.tar.gz"
   sha256 "4824ccfe43b48a22e1e0f39fc3662f79f55842ce2c77b409e7c8fa4f3903e12a"
   license "MIT"
 
   depends_on "python@3.11"
 
 
+  
   resource "pydantic" do
     url "https://files.pythonhosted.org/packages/69/44/36f1a6e523abc58ae5f928898e4aca2e0ea509b5aa6f6f392a5d882be928/pydantic-2.12.5.tar.gz"
     sha256 "4d351024c75c0f085a9febbb665ce8c0c6ec5d30e903bdb6394b7ede26aebb49"
@@ -34,6 +35,7 @@ class RespecAi < Formula
     url "https://files.pythonhosted.org/packages/91/9b/4a2ea29aeba62471211598dac5d96825bb49348fa07e906ea930394a83ce/docker-7.1.0.tar.gz"
     sha256 "ad8c70e6e3f8926cb8a92619b832b4ea5299e2831c14284663184e200546fa6c"
   end
+
 
 
   def install
@@ -61,6 +63,6 @@ class RespecAi < Formula
 
   test do
     system "#{bin}/respec-ai", "--version"
-    assert_match "0.5.3", shell_output("#{bin}/respec-ai --version")
+    assert_match "0.5.5", shell_output("#{bin}/respec-ai --version")
   end
 end
