@@ -10,10 +10,15 @@ class RespecAi < Formula
   depends_on "python"
 
   def install
-    # Create virtualenv and install package with dependencies
-    # No resource blocks needed - pip fetches dependencies from PyPI as wheels
+    # Create virtualenv
     venv = virtualenv_create(libexec, "python3")
-    venv.pip_install_and_link buildpath
+
+    # Install package with dependencies (pip fetches dependencies from PyPI as wheels)
+    # Must use direct system call instead of pip_install_and_link to avoid --no-deps flag
+    system libexec/"bin/pip", "install", "--verbose", buildpath
+
+    # Create symlink to bin
+    bin.install_symlink libexec/"bin/respec-ai"
   end
 
   def caveats
