@@ -10,7 +10,10 @@ class RespecAi < Formula
   depends_on "python"
 
   def install
-    virtualenv_install_with_resources
+    # Create virtualenv and install package with dependencies
+    # No resource blocks needed - pip fetches dependencies from PyPI as wheels
+    venv = virtualenv_create(libexec, "python3")
+    venv.pip_install_and_link buildpath
   end
 
   def caveats
