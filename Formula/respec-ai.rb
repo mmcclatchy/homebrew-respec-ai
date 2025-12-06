@@ -3,13 +3,14 @@ class RespecAi < Formula
 
   desc "AI-powered spec workflow automation (DEV BUILD - TestPyPI)"
   homepage "https://github.com/mmcclatchy/respec-ai"
-  url "https://test-files.pythonhosted.org/packages/0f/ae/a423b55b1971ae684464b8d6e3ea2bde10a92322df5b91da6c6a944dd1eb/respec_ai-0.5.5.tar.gz"
-  sha256 "4824ccfe43b48a22e1e0f39fc3662f79f55842ce2c77b409e7c8fa4f3903e12a"
+  url "https://test-files.pythonhosted.org/packages/7f/a5/10f2be033af786eca70ecbd9f1a36df1f0dbd9a135e1e5d70d7dc4459432/respec_ai-0.5.6.tar.gz"
+  sha256 "8ac8011decb8e210eff1d0ad5dc73a0e773492dbf9a300ec171d54745b174cc5"
   license "MIT"
 
   depends_on "python@3.11"
 
 
+  
   
   resource "pydantic" do
     url "https://files.pythonhosted.org/packages/69/44/36f1a6e523abc58ae5f928898e4aca2e0ea509b5aa6f6f392a5d882be928/pydantic-2.12.5.tar.gz"
@@ -38,6 +39,7 @@ class RespecAi < Formula
 
 
 
+
   def install
     virtualenv_install_with_resources
   end
@@ -63,6 +65,6 @@ class RespecAi < Formula
 
   test do
     system "#{bin}/respec-ai", "--version"
-    assert_match "0.5.5", shell_output("#{bin}/respec-ai --version")
+    assert_match "0.5.6", shell_output("#{bin}/respec-ai --version")
   end
 end
