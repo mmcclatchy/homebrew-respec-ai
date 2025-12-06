@@ -7,7 +7,7 @@ class RespecAi < Formula
   sha256 "2e892cba35d0fb26e1f5d3006360e80cdbed04cd486dca9a33a417b95c583895"
   license "MIT"
 
-  depends_on "python@3.11"
+  depends_on "python"  # Uses Homebrew's default Python (3.12+)
 
 
   
