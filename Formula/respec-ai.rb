@@ -3,8 +3,8 @@ class RespecAi < Formula
 
   desc "AI-powered spec workflow automation (DEV BUILD - TestPyPI)"
   homepage "https://github.com/mmcclatchy/respec-ai"
-  url "https://test-files.pythonhosted.org/packages/ea/b7/4941dc73a0e339d842190f5b2799f035d0eedc5115341d031d75d2b1d3d0/respec_ai-0.6.0.tar.gz"
-  sha256 "2db0770bb668e0ba5b9eaafa0cc8a3bdc253ed200555efe89f73aa0ac57eb5cf"
+  url "https://test-files.pythonhosted.org/packages/b5/aa/040a5855812a3c00fc58118fcc893efb6cd5aa5a4c57f87ad837bac3d52b/respec_ai-0.6.1.tar.gz"
+  sha256 "12609a1f1127e6e803bee5c0fe62218e098cc8fc62ac96918050466dd692097f"
   license "MIT"
 
   depends_on "python"
@@ -45,6 +45,6 @@ class RespecAi < Formula
 
   test do
     system "#{bin}/respec-ai", "--version"
-    assert_match "0.6.0", shell_output("#{bin}/respec-ai --version")
+    assert_match "0.6.1", shell_output("#{bin}/respec-ai --version")
   end
 end
